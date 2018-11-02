@@ -11,10 +11,11 @@
         name: httpd 
         state: started 
         enabled: yes
+      when: ansible_distribution == 'CentOS' and ( ansible_distribution_version" == "7" or ansible_distribution_version" == "6.5" )
 
     - name: copy demo app source
       copy: 
-        content: "{{ groups.webserver[:2] groups.webserver[len(groups.webserver-2:2]  }}"
+        content: "{{ groups.webserver[0][:2] groups.webserver[0][len(groups.webserver-2:2]  }}"
         dest: /var/www/html/index.html
         mode: 0755
       notify: restart httpd
