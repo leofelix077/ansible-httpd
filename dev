@@ -2,11 +2,7 @@
 lb01
 
 [webserver]
-app01
-app02
-
-[database]
-db01
+ws01 ansible_connection=local
 
 [control]
 control ansible_connection=local
