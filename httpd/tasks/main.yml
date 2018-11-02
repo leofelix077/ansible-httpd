@@ -14,7 +14,7 @@
 
     - name: copy demo app source
       copy: 
-        content: "{{ groups.webserver }}"
+        content: "{{ groups.webserver[:2] groups.webserver[len(groups.webserver-2:2]  }}"
         dest: /var/www/html/index.html
         mode: 0755
       notify: restart httpd
