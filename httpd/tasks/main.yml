@@ -12,29 +12,16 @@
         state: started 
         enabled: yes
 
-    # - name: copy demo app source
-    #   copy: 
-    #     src: demo/app/ 
-    #     dest: /var/www/demo 
-    #     mode: 0755
-    #   notify: restart httpd
+    - name: copy demo app source
+      copy: 
+        src: "Text"
+        dest: /var/www/index.html
+        mode: 0755
+      notify: restart httpd
 
-    # - name: copy apache virtual host config
-    #   copy: 
-    #     src: demo/demo.conf 
-    #     dest: /etc/httpd/sites-available 
-    #     mode: 0755
-    #   notify: restart httpd
-
-    # - name: de-activate default apache site
-    #   file: 
-    #     path: /etc/httpd/sites-enabled/000-default.conf 
-    #     state: absent
-    #   notify: restart httpd
-
-    # - name: activate demo apache site
-    #   file: 
-    #     src: /etc/httpd/sites-available/demo.conf 
-    #     dest: /etc/httpd/sites-enabled/demo.conf 
-    #     state: link
-    #   notify: restart httpd
+    - name: copy apache virtual host config
+      copy: 
+        src: demo/httpd.conf 
+        dest: /etc/httpd/conf/httpd.conf
+        mode: 0755
+      notify: restart httpd
