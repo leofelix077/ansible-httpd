@@ -14,8 +14,8 @@
 
     - name: copy demo app source
       copy: 
-        src: "Text"
-        dest: /var/www/index.html
+        content: "{{ groups.webserver }}"
+        dest: /var/www/html/index.html
         mode: 0755
       notify: restart httpd
 
